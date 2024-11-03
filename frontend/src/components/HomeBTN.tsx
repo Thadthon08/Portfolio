@@ -1,14 +1,13 @@
 import React from "react";
-import { useAudio } from "../context/AudioContext";
-import { FiVolume2, FiVolumeX } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { FiHome } from "react-icons/fi";
 
-const AudioPlayer: React.FC = () => {
-  const { isPlaying, togglePlay } = useAudio();
-
+const HomeBTN: React.FC = () => {
+  const navigate = useNavigate();
   return (
-    <div className="audio-player fixed top-4 right-4 z-50">
+    <div className="audio-player fixed top-4 left-4 z-50">
       <button
-        onClick={togglePlay}
+        onClick={() => navigate("/")}
         className="w-14 h-14 flex items-center justify-center 
                  rounded-full 
                  bg-black/5 backdrop-blur-sm
@@ -20,11 +19,11 @@ const AudioPlayer: React.FC = () => {
                  group"
       >
         <span className="text-white/70 group-hover:text-white/90 transition-colors">
-          {isPlaying ? <FiVolume2 size={24} /> : <FiVolumeX size={24} />}
+          {<FiHome size={24} />}
         </span>
       </button>
     </div>
   );
 };
 
-export default AudioPlayer;
+export default HomeBTN;

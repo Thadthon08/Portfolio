@@ -12,11 +12,11 @@ const Hat = React.memo(function Hat(props) {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setHatScale([0.7, 0.7, 0.7]);
+        setHatScale([0.85, 0.85, 0.85]);
       } else if (width < 1024) {
-        setHatScale([0.9, 0.9, 0.9]);
+        setHatScale([1, 1, 1]);
       } else {
-        setHatScale([1.3, 1.3, 1.3]);
+        setHatScale([1.4, 1.4, 1.4]);
       }
     };
 

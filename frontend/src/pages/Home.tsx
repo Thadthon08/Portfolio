@@ -18,10 +18,6 @@ function Home() {
             url(${HomeBG})
           `,
           filter: "brightness(0.8)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100vw",
-          height: "100vh",
         }}
       />
       <Firefly />

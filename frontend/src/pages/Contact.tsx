@@ -35,10 +35,6 @@ const Contact: React.FC = () => {
             url(${ContactBG})
         `,
           filter: "brightness(0.85)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100vw",
-          height: "100vh",
         }}
       />
       <Firefly />

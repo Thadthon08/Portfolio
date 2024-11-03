@@ -11,7 +11,13 @@ const Profile = () => {
       {/* Fixed Background */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 bg-[#1a1b26]">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="
+    absolute inset-0 bg-cover bg-center bg-fixed 
+    brightness-90
+     sm:bg-center
+    sm:h-screen
+    md:bg-center
+  "
           style={{
             backgroundImage: `
       radial-gradient(circle at 50% 70%, 
@@ -21,10 +27,6 @@ const Profile = () => {
       url(${ProfileBG})
     `,
             filter: "brightness(0.85)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            width: "100vw",
-            height: "100vh",
           }}
         />
         <Firefly />

@@ -14,13 +14,17 @@ const Profile = () => {
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
             backgroundImage: `
-              radial-gradient(circle at 50% 70%, 
-                rgba(26, 27, 38, 0.3) 0%,
-                rgba(26, 27, 38, 0.7) 100%
-              ),
-              url(${ProfileBG})
-            `,
+      radial-gradient(circle at 50% 70%, 
+        rgba(26, 27, 38, 0.3) 0%,
+        rgba(26, 27, 38, 0.7) 100%
+      ),
+      url(${ProfileBG})
+    `,
             filter: "brightness(0.85)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100vw",
+            height: "100vh",
           }}
         />
         <Firefly />

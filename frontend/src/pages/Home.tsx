@@ -12,12 +12,16 @@ function Home() {
         style={{
           backgroundImage: `
             radial-gradient(circle at 50% 70%, 
-              rgba(26, 27, 38, 0) 0%,
-              rgba(26, 27, 38, 0.1) 100%
+              rgba(26, 27, 38, 0.3) 0%,
+              rgba(26, 27, 38, 0.5) 100%
             ),
             url(${HomeBG})
           `,
           filter: "brightness(0.8)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "100vw",
+          height: "100vh",
         }}
       />
       <Firefly />

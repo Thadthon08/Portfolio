@@ -2,25 +2,32 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   Home,
-  Sparkles,
   UserCircle,
+  Mail,
   FileText,
-  Twitter,
-  Code,
   Palette,
+  Facebook,
   Github,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import useScreenSize from "../hook/useScreenSize";
 
 const icons = [
-  { component: <Home size={32} />, link: "/home", label: "Home" },
-  { component: <Sparkles size={32} />, link: "#", label: "Magic" },
-  { component: <Code size={32} />, link: "#", label: "Skills" },
-  { component: <FileText size={32} />, link: "#", label: "Resume" },
-  { component: <Github size={32} />, link: "#", label: "Github" },
-  { component: <Palette size={32} />, link: "#", label: "Project" },
-  { component: <UserCircle size={32} />, link: "/profile", label: "Profile" },
+  { component: <Home size={40} />, link: "/home", label: "Home" },
+  {
+    component: <Facebook size={40} />,
+    link: "https://www.facebook.com/tas.ton.5",
+    label: "Facebook",
+  },
+  { component: <Mail size={40} />, link: "/contact", label: "Contact" },
+  { component: <FileText size={40} />, link: "#", label: "Resume" },
+  {
+    component: <Github size={40} />,
+    link: "https://github.com/Thadthon08",
+    label: "Github",
+  },
+  { component: <Palette size={40} />, link: "#", label: "Project" },
+  { component: <UserCircle size={40} />, link: "/profile", label: "Profile" },
 ];
 
 interface NavButtonProps {
@@ -36,14 +43,14 @@ const NavButton: React.FC<NavButtonProps> = ({ children }) => {
   const size = useScreenSize();
   const isLarge = size >= 1024;
   const isMedium = size >= 768;
-  const navigate = useNavigate(); // นำเข้า useNavigate และใช้งาน
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateRadius = () => {
       if (containerRef.current) {
         const { width, height } = containerRef.current.getBoundingClientRect();
         const newRadius =
-          Math.min(width, height) / 2 - (isLarge ? 70 : isMedium ? 60 : 50); // Adjust radius based on screen size
+          Math.min(width, height) / 2 - (isLarge ? 70 : isMedium ? 60 : 50);
         setRadius(newRadius);
       }
     };
@@ -96,14 +103,16 @@ const NavButton: React.FC<NavButtonProps> = ({ children }) => {
             <motion.div
               key={index}
               onClick={() => {
-                if (icon.link !== "#") {
-                  navigate(icon.link); // ใช้ useNavigate เพื่อนำทางไปยังเส้นทางที่กำหนด
+                if (icon.link.startsWith("http")) {
+                  window.open(icon.link, "_blank", "noopener,noreferrer");
+                } else {
+                  navigate(icon.link);
                 }
               }}
-              className="absolute flex items-center justify-center w-14 h-14 rounded-full 
+              className="absolute flex items-center justify-center w-16 h-16 rounded-full 
                         bg-black/5 backdrop-blur-sm hover:bg-black/20 
                         shadow-[0_0_8px_rgba(255,255,255,0.15)] transition-all
-                        border border-white/10 cursor-pointer"
+                        border  border-yellow-300/50 cursor-pointer"
               style={{
                 left: `calc(50% + ${x}px)`,
                 top: `calc(50% + ${y}px)`,

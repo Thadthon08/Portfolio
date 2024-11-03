@@ -9,21 +9,36 @@
   background: rgba(255, 255, 128, 0.8);
   border-radius: 50%;
   filter: blur(1px);
-  animation: float 5s infinite ease-in-out;
+  animation: fly 15s ease-in-out infinite, blink 4s infinite alternate;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.2;
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1);
   }
   50% {
-    transform: translateY(-20px) scale(1.2);
-    opacity: 0.8;
+    transform: translate(-40px, 40px) scale(0.9);
+  }
+  75% {
+    transform: translate(50px, -50px) scale(1);
+  }
+  100% {
+    transform: translate(-30px, 30px) scale(0.8);
   }
 }
 
+/* กระพริบแบบสุ่ม */
+@keyframes blink {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /* Auto-rotate animation */
 @keyframes orbit {
   from {

@@ -45,7 +45,7 @@ const Staff: React.FC<StaffProps> = React.memo((props) => {
       {...props}
       dispose={null}
       scale={[2.5, 2.5, 2.5]}
-      position={[-4.45, -2.5, 0]}
+      position={[-4, -2.5, 0]}
       ref={modelRef}
     >
       <mesh

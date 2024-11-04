@@ -1,6 +1,7 @@
 import CatVoice from "../assets/project/catvoice.png";
 import SUTAttendance from "../assets/project/sutattendance.png";
 import SoftwareKey from "../assets/project/softwarekey.png";
+import MachineVision from "../assets/project/machine_vision.png";
 import Card from "./Card";
 import { ExternalLink } from "lucide-react";
 
@@ -28,6 +29,14 @@ const projectList = [
     link: "https://cat-s-voice-i9uz.vercel.app/",
     description:
       "A project focused on finding homes for cats and dogs, developed as a project in the Advanced Web Application course.",
+  },
+  {
+    id: 4,
+    title: "Bell Pepper Sorting Machine Vision",
+    image: MachineVision,
+    link: "https://www.youtube.com/watch?v=C9ESb0XkbXk",
+    description:
+      "The Bell Pepper Sorting Machine Vision project focuses on using machine vision techniques to detect and categorize various types of bell peppers. This involves identifying specific characteristics required for sorting.",
   },
 ];
 

@@ -26,7 +26,7 @@ const icons = [
     link: "https://github.com/Thadthon08",
     label: "Github",
   },
-  { component: <Palette size={40} />, link: "#", label: "Project" },
+  { component: <Palette size={40} />, link: "project", label: "Projects" },
   { component: <UserCircle size={40} />, link: "/profile", label: "Profile" },
 ];
 

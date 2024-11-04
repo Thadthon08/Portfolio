@@ -7,6 +7,7 @@ import { AudioProvider } from "./context/AudioContext";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
 import Contact from "./pages/Contact";
+import Project from "./pages/Project";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "project",
+        element: <Project />,
       },
     ],
   },

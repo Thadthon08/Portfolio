@@ -28,8 +28,9 @@ const projectList = [
     image: CatVoice,
     link: "https://cat-s-voice-i9uz.vercel.app/",
     description:
-      "A project focused on finding homes for cats and dogs, developed as a project in the Advanced Web Application course.",
+      "A project focused on finding homes for cats and dogs, developed as part of the Advanced Web Application course. This website was cloned from The Voice Foundation's site for educational purposes.",
   },
+
   {
     id: 4,
     title: "Bell Pepper Sorting Machine Vision",

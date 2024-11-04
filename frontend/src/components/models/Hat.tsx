@@ -42,8 +42,6 @@ const Hat = React.memo(function Hat(props) {
       position={[0, 0, -1.5]}
     >
       <mesh
-        castShadow
-        receiveShadow
         geometry={(nodes.Object_2 as THREE.Mesh).geometry}
         material={materials.initialShadingGroup}
         position={[0, -3.867, 0]}

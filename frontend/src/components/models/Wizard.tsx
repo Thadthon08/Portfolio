@@ -12,15 +12,13 @@ const Wizard = React.memo(function Wizard(
   // Clone scene to avoid mutations
   const clonedScene = React.useMemo(() => {
     const clone = scene.clone(true);
-    // Ensure all materials are properly cloned and set up
     clone.traverse((node) => {
       if (node instanceof THREE.Mesh) {
         if (node.material) {
-          // Clone material if it exists
           node.material = node.material.clone();
-          // Enable shadows
-          node.castShadow = true;
-          node.receiveShadow = true;
+          // ปิดการใช้งานเงา
+          node.castShadow = false;
+          node.receiveShadow = false;
         }
       }
     });
@@ -30,9 +28,8 @@ const Wizard = React.memo(function Wizard(
   // Animation
   useFrame((state) => {
     if (groupRef.current) {
-      // Gentle floating movement
       const t = state.clock.getElapsedTime();
-      groupRef.current.position.y = Math.sin(t * 0.5) * 0.1;
+      groupRef.current.position.y = Math.sin(t * 0.3) * 0.05;
     }
   });
 

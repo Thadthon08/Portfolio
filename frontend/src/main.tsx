@@ -1,4 +1,4 @@
-import { StrictMode, Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -63,9 +63,7 @@ const router = createBrowserRouter([
 
 // เริ่มการ render
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <AudioProvider>
-      <RouterProvider router={router} />
-    </AudioProvider>
-  </StrictMode>
+  <AudioProvider>
+    <RouterProvider router={router} />
+  </AudioProvider>
 );

@@ -17,7 +17,7 @@ function Home() {
             ),
             url(${HomeBG})
           `,
-          filter: "brightness(0.8)",
+          filter: "brightness(0.64)",
         }}
       />
       <Firefly />

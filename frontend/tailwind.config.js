@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["var(--font-inter)"],
+        sans: ["Yusei Magic", "sans-serif"],
       },
       colors: {
         background: "rgb(var(--background))",

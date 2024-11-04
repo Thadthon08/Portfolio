@@ -35,7 +35,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({
     if (!audioRef.current) {
       audioRef.current = new Audio("/audio/Hedwig.mp3");
       audioRef.current.loop = true;
-      audioRef.current.volume = 0.4;
+      audioRef.current.volume = 0.2;
     }
 
     if (audioRef.current) {

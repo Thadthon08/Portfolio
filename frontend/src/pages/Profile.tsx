@@ -40,7 +40,7 @@ const Profile = () => {
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundAttachment: isMobile ? "scroll" : "fixed",
-            transform: "scale(1.1)", // Slightly scale up to prevent white edges
+            transform: "scale(1.1)",
             height: "100vh",
             width: "100vw",
           }}
@@ -73,7 +73,7 @@ const Profile = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative min-h-screen w-full overflow-x-hidden">
+      <main className="relative min-h-screen w-full overflow-hidden">
         {/* Hero Section */}
         <div className="h-screen w-full">
           <RenderModels>
@@ -84,7 +84,7 @@ const Profile = () => {
                 space-y-4 sm:space-y-6
                 p-4 sm:p-6 lg:p-8
                 relative w-screen
-                backdrop-blur-sm sm:backdrop-blur-none
+                
               "
               >
                 <div className="text-center space-y-2">
@@ -93,7 +93,7 @@ const Profile = () => {
                       text-yellow-300 font-bold tracking-wider 
                       text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
                       transform transition-all duration-300 hover:scale-105
-                      drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]
+                      drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] 
                     "
                   >
                     Welcome to My Story

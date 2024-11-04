@@ -29,7 +29,7 @@ const Hat = React.memo(function Hat(props) {
 
   useFrame(() => {
     if (hatRef.current) {
-      hatRef.current.rotation.y += 0.004;
+      hatRef.current.rotation.y += 0.005;
     }
   });
 

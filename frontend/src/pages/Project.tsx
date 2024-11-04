@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import Firefly from "../components/Firefly";
 import ProjectBG from "../assets/background/projects-background.png";
 import RenderModels from "../components/RenderModels";
-import { Html } from "@react-three/drei";
-import ProfileDetails from "../components/ProfileDetails";
 import Staff from "../components/models/Staff";
 import ProjectList from "../components/ProjectList";
 

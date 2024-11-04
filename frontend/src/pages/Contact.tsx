@@ -7,6 +7,8 @@ import ContactForm from "../components/ContactForm";
 const Contact: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+  document.title = "Thadthon | Contact";
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);

@@ -8,6 +8,8 @@ import ProjectList from "../components/ProjectList";
 const Project = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+  document.title = "Thadthon | Projects";
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);

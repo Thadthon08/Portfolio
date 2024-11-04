@@ -9,6 +9,8 @@ import ProfileDetails from "../components/ProfileDetails";
 const Profile = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+  document.title = "Thadthon | Profile";
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);

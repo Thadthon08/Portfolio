@@ -1,10 +1,24 @@
+import { useState, useEffect } from "react";
 import HomeBG from "../assets/background/home-background.png";
 import Firefly from "../components/Firefly";
 import Wizard from "../components/models/Wizard";
 import NavButton from "../components/NavButton";
 import RenderModels from "../components/RenderModels";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = HomeBG;
+    img.onload = () => setIsLoaded(true);
+  }, []);
+
+  if (!isLoaded) {
+    return <LoadingIndicator />;
+  }
+
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-[#1a1b26]">
       <div

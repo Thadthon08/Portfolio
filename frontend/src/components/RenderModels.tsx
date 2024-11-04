@@ -1,9 +1,49 @@
 import { Environment, PerspectiveCamera } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect, useState, useRef } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
+import { Suspense, useEffect, useState, useRef, useCallback } from "react";
+import { WebGLRenderer } from "three";
 
 type RenderModelsProps = {
   children: React.ReactNode;
+};
+
+// Component ที่จัดการกับ WebGL context
+const ContextHandler = () => {
+  const { gl } = useThree();
+
+  useEffect(() => {
+    const handleContextLost = (event: Event) => {
+      event.preventDefault();
+      console.warn("WebGL context lost. Attempting to reset.");
+
+      // ทำการ reset renderer
+      if (gl instanceof WebGLRenderer) {
+        gl.setPixelRatio(window.devicePixelRatio);
+        gl.setSize(window.innerWidth, window.innerHeight);
+      }
+    };
+
+    const handleContextRestored = () => {
+      console.info("WebGL context restored.");
+
+      // รีเซ็ต renderer หลังจาก context ถูกกู้คืน
+      if (gl instanceof WebGLRenderer) {
+        gl.setPixelRatio(window.devicePixelRatio);
+        gl.setSize(window.innerWidth, window.innerHeight);
+      }
+    };
+
+    const canvas = gl.domElement;
+    canvas.addEventListener("webglcontextlost", handleContextLost);
+    canvas.addEventListener("webglcontextrestored", handleContextRestored);
+
+    return () => {
+      canvas.removeEventListener("webglcontextlost", handleContextLost);
+      canvas.removeEventListener("webglcontextrestored", handleContextRestored);
+    };
+  }, [gl]);
+
+  return null;
 };
 
 function RenderModels({ children }: RenderModelsProps) {
@@ -12,48 +52,31 @@ function RenderModels({ children }: RenderModelsProps) {
     height: window.innerHeight,
   });
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const frameIdRef = useRef<number>();
 
-  useEffect(() => {
-    // Handle resize to keep the canvas full screen
-    const handleResize = () => {
-      setCanvasSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Handle WebGL context lost and restored
-    const handleContextLost = (event: Event) => {
-      event.preventDefault();
-      console.warn("WebGL context lost. Attempting to reset.");
-    };
-
-    const handleContextRestored = () => {
-      console.info("WebGL context restored.");
-    };
-
-    // Add event listeners for context lost and restored
-    if (canvasRef.current) {
-      canvasRef.current.addEventListener("webglcontextlost", handleContextLost);
-      canvasRef.current.addEventListener(
-        "webglcontextrestored",
-        handleContextRestored
-      );
+  // Resize handler แบบ debounced
+  const handleResize = useCallback(() => {
+    if (frameIdRef.current) {
+      cancelAnimationFrame(frameIdRef.current);
     }
 
+    frameIdRef.current = requestAnimationFrame(() => {
+      setCanvasSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
-      if (canvasRef.current) {
-        canvasRef.current.removeEventListener(
-          "webglcontextlost",
-          handleContextLost
-        );
-        canvasRef.current.removeEventListener(
-          "webglcontextrestored",
-          handleContextRestored
-        );
+      if (frameIdRef.current) {
+        cancelAnimationFrame(frameIdRef.current);
       }
     };
-  }, []);
+  }, [handleResize]);
 
   return (
     <Canvas
@@ -70,8 +93,20 @@ function RenderModels({ children }: RenderModelsProps) {
         far: 1000,
       }}
       shadows
+      gl={{
+        antialias: true,
+        powerPreference: "high-performance",
+        alpha: true,
+        preserveDrawingBuffer: true,
+        failIfMajorPerformanceCaveat: false,
+      }}
+      dpr={[1, 2]}
+      performance={{
+        min: 0.5,
+      }}
     >
       <Suspense fallback={null}>
+        <ContextHandler />
         {children}
         <ambientLight intensity={0.1} />
         <directionalLight

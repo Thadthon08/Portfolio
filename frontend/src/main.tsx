@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AudioProvider } from "./context/AudioContext";
 import Layout from "./components/Layout";
 import LoadingIndicator from "./components/LoadingIndicator";
+import Resume from "./pages/Resume";
 
 // ใช้ lazy สำหรับการโหลดหน้าแบบ Lazy Load
 const Home = lazy(() => import("./pages/Home"));
@@ -54,6 +55,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingIndicator />}>
             <Project />
+          </Suspense>
+        ),
+      },
+      {
+        path: "resume",
+        element: (
+          <Suspense fallback={<LoadingIndicator />}>
+            <Resume />
           </Suspense>
         ),
       },

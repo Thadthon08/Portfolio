@@ -20,7 +20,7 @@ const icons = [
     label: "Facebook",
   },
   { component: <Mail size={40} />, link: "/contact", label: "Contact" },
-  { component: <FileText size={40} />, link: "#", label: "Resume" },
+  { component: <FileText size={40} />, link: "/resume", label: "Resume" },
   {
     component: <Github size={40} />,
     link: "https://github.com/Thadthon08",

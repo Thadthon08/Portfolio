@@ -91,9 +91,9 @@ const ProfileDetails: React.FC = () => {
               variants={itemVariants}
               className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed"
             >
-              Hello, my name is Thadthon Sangkhachon, or you can call me Touch.
+              Hello, my name is Thadthon Sangkhachon, you can call me Thuch.
               I am a computer engineering student at Suranaree University of
-              Technology, currently holding a GPA of 3.61. I have skills in
+              Technology. Currently holding a GPA of 3.61. I have skills in
               creating responsive user interfaces using HTML, CSS, and
               JavaScript, as well as integrating APIs to enhance functionality.
               My project experience includes developing a student attendance

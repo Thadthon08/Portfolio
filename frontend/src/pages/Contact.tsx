@@ -130,8 +130,8 @@ const Contact: React.FC = () => {
             "
             >
               Feel free to reach out with any questions, project ideas, or to
-              simply connect. Use the form below to send a message, and I'll
-              respond as soon as possible.
+              simply connect. Use the form below to send a message. I'll
+              respond ASAP.
             </p>
           </motion.div>
 
